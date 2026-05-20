@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Ripple Text</title>
+  <style>
+    body {
+      min-height: 100vh; /* به جای height: 100vh برای موبایل بهتره */
+      margin: 0;
+      background: linear-gradient(to bottom, #667eea, #8660ab, #5a3eae);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box; /* padding رو داخل محاسبه کن */
+    }
+
+    h1 {
+      display: inline-block;
+      animation: ripple 1.2s ease-in-out infinite;
+      font-size: clamp(2rem, 8vw, 3rem); /* responsive font-size: موبایل 2rem، دسکتاپ 3rem */
+      margin: 0;
+      line-height: 1.2; /* برای stack نشدن حروف */
+    }
+
+    h1 samp {
+      display: inline-block; /* هر حرف مستقل باشه */
+      margin: 0 2px; /* فاصله کوچیک بین حروف برای responsive */
+    }
+
+    h1 samp:nth-child(1) { animation-delay: 0s; }
+    h1 samp:nth-child(2) { animation-delay: 0.1s; }
+    h1 samp:nth-child(3) { animation-delay: 0.2s; }
+    h1 samp:nth-child(4) { animation-delay: 0.3s; }
+    h1 samp:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes ripple {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        color: white;
+      }
+      50% {
+        transform: translateY(-15px) scale(6);
+        color: #00f7ff;
+      }
+    }
+
+    /* Media query برای موبایل‌های خیلی کوچیک */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px; /* padding کمتر روی موبایل */
+      }
+      h1 samp {
+        margin: 0 1px; /* فاصله کمتر حروف */
+      }
+      @keyframes ripple {
+        50% {
+          transform: translateY(-10px) scale(4); /* scale کوچیک‌تر روی موبایل تا overflow نشه */
+        }
+      }
+    }
+
+    /* تبلت و بالاتر */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 4rem; /* بزرگ‌تر روی تبلت/دسکتاپ */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <samp>N</samp>
+    <samp>E</samp>
+    <samp>G</samp>
+    <samp>A</samp>
+    <samp>R</samp>
+  </h1>
+</body>
+</html>

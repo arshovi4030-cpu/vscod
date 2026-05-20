@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>login</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+  body {
+    margin: 0;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background: linear-gradient(#667eea, #8660ab,#5a3eae);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+  }
+  .login-container {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    width: 350px;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .login-container h2 {
+    margin-bottom: 30px;
+    color: #5a3eae;
+  }
+  .login-container input[type="email"],.login-container input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 12px 0 24px 0;
+    border: 1.8px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  .login-container input[type="email"]:focus,.login-container input[type="password"]:focus {
+    border-color: #5a3eae;
+    outline: none;
+  }
+  .login-container button {
+    width: 100%;
+    background: #5a3eae;
+    color: white;
+    padding: 14px;
+    font-size: 17px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background0.3s ease;
+  }
+  .login-container button:hover {
+    background: #472b8a;
+  }
+  .login-footer {
+    margin-top: 18px;
+    font-size: 14px;
+  }
+  .login-footer a {
+    color: #5a3eae;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .login-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>ورود به حساب کاربری</h2>
+  <form>
+    <input type="email" placeholder="ایمیل خود را وارد کنید" required />
+    <input type="password" placeholder="رمز عبور" required />
+    <button type="submit">ورود</button>
+  </form>
+  <div class="login-footer">
+   
+   <p>اگر حساب نداری، <a href="product.html">ثبت‌نام کن</a></p>
+  </div>
+</div>
+
+</body>
+</html>

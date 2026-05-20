@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فروشگاه لوازم جانبی موبایل بوستانی</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #667eea, #8660ab, #5a3eae);
+      font-family: 'Vazir', sans-serif;
+    }
+    h1 {
+      font-size: 28px;
+      font-style: italic;
+      color: #fff;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .card {
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .card-title {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .btn {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>لوازم جانبی موبایل بوستانی</h1>
+
+  <div class="container my-4 text-end">
+    <button onclick="showCart()" type="button" class="btn btn-light position-relative">
+      سبد خرید
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <span id="cartCount">0</span>
+        <span class="visually-hidden">تعداد اقلام</span>
+      </span>
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="row" id="root"></div>
+  </div>
+
+  <script>
+    const PRODUCTS_LIST = [
+      {
+        id: 1,
+        title: 'پاور بانک مک دودو مدل MC-502',
+        price: 199000,
+        image: "https://dkstatics-public.digikala.com/digikala-products/11cc57ff4f58fac442bd727dcd857cf0f2d1e166_1754253163.jpg"
+      },
+      {
+        id: 2,
+        title: 'پاوربانک کانفلون مدل A47Q',
+        price: 499000,
+        image: "https://dkstatics-public.digikala.com/digikala-products/06824056d9ba715438ec3c6a604af30fe40ceda2_1743417953.jpg"
+      },
+      {
+        id: 3,
+        title: 'پاوربانک مدل WICCoo___22.5W',
+        price: 1190000,
+        image: "https://dkstatics-public.digikala.com/digikala-products/614878a2b87b42e71a46623719a96f8818cc1bc9_1757314887.jpg"
+      },
+      {
+        id: 4,
+        title: 'پاوربانک گرین مدل چند کاره',
+        price: 2590000,
+        image: "https://dkstatics-public.digikala.com/digikala-products/4a8758767ccade1d854dc5bb5fe3337cd6000138_1733301197.jpg"
+      }
+    ];
+
+    const root = document.getElementById("root");
+    const cartCount = document.getElementById("cartCount");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cartCount.innerText = cart.length;
+
+    PRODUCTS_LIST.forEach(product => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
+
+      const card = document.createElement("div");
+      card.className = "card h-100 text-center";
+
+      const img = document.createElement("img");
+      img.className = "card-img-top";
+      img.src = product.image;
+      img.alt = product.title;
+
+      const cardBody = document.createElement("div");
+      cardBody.className = "card-body d-flex flex-column justify-content-between";
+
+      const h5 = document.createElement("h5");
+      h5.className = "card-title";
+      h5.innerText = product.title;
+
+      const priceLabel = document.createElement("p");
+      priceLabel.className = "text-info fw-bold";
+      priceLabel.innerText = product.price.toLocaleString() + " تومان";
+
+      const addToCartBtn = document.createElement("button");
+      addToCartBtn.className = "btn btn-success w-100";
+      addToCartBtn.innerText = "افزودن به سبد خرید";
+      addToCartBtn.onclick = () => {
+        cart.push(product.id);
+
+
+
+localStorage.setItem("cart", JSON.stringify(cart));
+        cartCount.innerText = cart.length;
+      };
+
+
+
+
+
+
+        const removeBtn = document.createElement("button");
+  removeBtn.className = "btn btn-outline-danger w-100";
+  removeBtn.innerText = "حذف محصول";
+  removeBtn.onclick = () => {
+    if (confirm("آیا از حذف این محصول مطمئن هستید؟")) {
+      col.remove();
+    }
+  };
+
+  cardBody.appendChild(h5);
+  cardBody.appendChild(priceLabel);
+  cardBody.appendChild(addToCartBtn);
+  cardBody.appendChild(removeBtn);
+
+  card.appendChild(img);
+  card.appendChild(cardBody);
+  col.appendChild(card);
+  root.appendChild(col);
+});
+
+function showCart() {
+  window.location.href = "cart.html";
+}
+
+ </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

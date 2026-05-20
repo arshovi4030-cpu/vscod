@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Ripple Text</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom, #667eea, #8660ab, #5a3eae);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      display: flex;
+      gap: 5px;
+      font-size: 9rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    h1 samp {
+      display: inline-block;
+      animation: ripple 1.2s ease-in-out infinite;
+    }
+
+    h1 samp:nth-child(1) { animation-delay: 0s; }
+    h1 samp:nth-child(2) { animation-delay: 0.1s; }
+    h1 samp:nth-child(3) { animation-delay: 0.2s; }
+    h1 samp:nth-child(4) { animation-delay: 0.3s; }
+    h1 samp:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes ripple {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        color: white;
+      }
+      50% {
+        transform: translateY(-15px) scale(1.2);
+        color: #00f7ff;
+      }
+    }
+
+    h2 a {
+      color: #0d20ee;
+      text-decoration: none;
+      font-size: 2rem;
+      transition: color 0.3s;
+    }
+
+    h2 a:hover {
+      color: #f13b08;
+    }
+
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 5rem;
+      }
+
+      h2 a {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 a {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <samp>N</samp>
+    <samp>E</samp>
+    <samp>G</samp>
+    <samp>A</samp>
+    <samp>R</samp>
+  </h1>
+  <h2><a href="./named.html">negar</a></h2>
+</body>
+</html>
